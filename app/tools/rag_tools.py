@@ -17,11 +17,11 @@ def amazon_rag_tool(query: str):
     return search_collection("amazon", query)
 
 @tool
-def microsoft_rag_tool(query: str):
+def tesla_rag_tool(query: str):
     """Search Microsoft collection"""
-    return search_collection("microsoft", query)
+    return search_collection("tesla", query)
 
 @tool
-def meta_rag_tool(query: str):
+def tcs_rag_tool(query: str):
     """Search Meta collection"""
-    return search_collection("meta", query)
+    return search_collection("tcs", query)
