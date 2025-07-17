@@ -19,7 +19,7 @@ engine = create_engine(POSTGRES_URL)
 # Create a session factory — used to interact with the database in a transaction-safe way
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-# Create a base class to define our ORM models (i.e., database tables)
+# Create a base class to define our ORM models
 Base = declarative_base()
 
 

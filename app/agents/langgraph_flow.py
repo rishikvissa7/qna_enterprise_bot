@@ -60,7 +60,6 @@ def end_node(state: RAGState) -> RAGState:
 
 
 # STEP 5: Build LangGraph Workflow
-
 def get_rag_graph():
     builder = StateGraph(state_schema=RAGState)  # Graph expects states matching RAGState schema
 
