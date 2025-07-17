@@ -1,5 +1,13 @@
+# Import LangChain's tool decorator
 from langchain.tools import tool
+
+# Import the function that performs a semantic search from Qdrant
 from app.services.qdrant_search import search_collection
+
+
+
+# Each @tool creates a LangChain-compatible tool
+# These are used by the agent to query specific company collections
 
 @tool
 def google_rag_tool(query: str):
@@ -18,10 +26,10 @@ def amazon_rag_tool(query: str):
 
 @tool
 def tesla_rag_tool(query: str):
-    """Search Microsoft collection"""
+    """Search Tesla collection""" 
     return search_collection("tesla", query)
 
 @tool
 def tcs_rag_tool(query: str):
-    """Search Meta collection"""
+    """Search TCS collection"""  
     return search_collection("tcs", query)
