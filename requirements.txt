@@ -1,21 +1,13 @@
 fastapi
 uvicorn
-
-# LangGraph + LangChain
-langchain
-langgraph
-
-# Vector store + Embeddings
+sqlalchemy
+psycopg2-binary
+litellm
 qdrant-client
 sentence-transformers
-
-# LLM provider
-litellm
-
-# MongoDB + PostgreSQL
-pymongo
-psycopg2-binary
-sqlalchemy
-
-# .env support
+yfinance
+requests
 python-dotenv
+langchain
+langgraph
+langchain-litellm
