@@ -9,8 +9,4 @@ class RAGState(TypedDict):
     companies: List[str]
     tools: List[str]
     answers: List[str]
-<<<<<<< HEAD
     final_answer: str
-=======
-    final_answer: str
->>>>>>> main
