@@ -19,7 +19,11 @@ logger = logging.getLogger(__name__)
 load_dotenv()
 
 # Initialize FastAPI app
+<<<<<<< HEAD
 app = FastAPI(title="RAG Multi-Agent System", version="1.0.0")
+=======
+app = FastAPI(title="Multi Company Info Bot", version="1.0.0")
+>>>>>>> main
 
 # Initialize Qdrant client
 try:
@@ -120,4 +124,8 @@ app.include_router(upload_router, prefix="/api/data", tags=["Data Upload"])
 
 if __name__ == "__main__":
     import uvicorn
+<<<<<<< HEAD
     uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)
+=======
+    uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)
+>>>>>>> main

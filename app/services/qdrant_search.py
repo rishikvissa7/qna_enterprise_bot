@@ -65,4 +65,8 @@ def qdrant_search(query: str, company: str, top_k: int = 1) -> str:
         return "No information found for this company."
     except Exception as e:
         logger.error(f"Qdrant search failed for {company}: {str(e)}")
+<<<<<<< HEAD
         return f"Error searching Qdrant: {str(e)}"
+=======
+        return f"Error searching Qdrant: {str(e)}"
+>>>>>>> main
