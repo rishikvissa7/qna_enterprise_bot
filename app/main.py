@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 load_dotenv()
 
 # Initialize FastAPI app
-app = FastAPI(title="RAG Multi-Agent System", version="1.0.0")
+app = FastAPI(title="Multi Company Info Bot", version="1.0.0")
 
 # Initialize Qdrant client
 try:

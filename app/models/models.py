@@ -7,6 +7,12 @@ from sqlalchemy.orm import relationship
 
 logger = logging.getLogger(__name__)
 
+class Company(Base):
+    __tablename__ = "companies"
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, unique=True, index=True)
+    description = Column(String)
+
 class ConversationTurn(Base):
     __tablename__ = "conversation_turns"
     id = Column(Integer, primary_key=True, autoincrement=True)

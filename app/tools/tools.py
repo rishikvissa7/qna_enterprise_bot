@@ -92,29 +92,34 @@ def qdrant_search_tool(question: str, company: str) -> str:
 
 @tool
 def web_search_tool(question: str, company: str = "") -> str:
-    """Search the web using Serper API."""
+    """Perform a web search for recent news or updates about a company using Serper API."""
     try:
         url = "https://google.serper.dev/search"
         headers = {
             "X-API-KEY": os.getenv("SERPER_API_KEY"),
             "Content-Type": "application/json"
         }
-        query = f"{company} {question}" if company else question
+        # Prevent repeated company in question
+        query = question if company.lower() in question.lower() else f"{company} {question}"
         payload = {"q": query}
         response = requests.post(url, json=payload, headers=headers)
         response.raise_for_status()
         results = response.json().get("organic", [])
-        if results:
-            for result in results:
-                snippet = result.get("snippet", "")
-                if snippet:
-                    logger.info(f"Found web answer for {query}: {snippet[:50]}...")
-                    return snippet
-        logger.info(f"No web results found for {query}")
-        return "No relevant information found on the web."
+
+        if not results:
+            logger.info(f"No web results found for {query}")
+            return "No relevant information found on the web."
+
+        for result in results:
+            snippet = result.get("snippet") or result.get("title") or ""
+            if snippet:
+                logger.info(f"Found web answer for {query}: {snippet[:50]}...")
+                return snippet
+
+        return f"No meaningful snippet found for {query}."
     except Exception as e:
         logger.error(f"Web search failed: {str(e)}")
-        raise Exception(f"Web search failed: {str(e)}")
+        return f"Web search failed: {str(e)}"
 
 # List of available tools (add new tools here)
 TOOLS = [stock_price_tool, qdrant_search_tool, web_search_tool]
