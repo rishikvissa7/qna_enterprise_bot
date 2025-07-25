@@ -1,4 +1,6 @@
 # app/services/postgres_storage.py
+# This module provides functions to save and retrieve conversation turns,
+# checkpoints, and session history using PostgreSQL with SQLAlchemy ORM.
 import json
 from datetime import datetime
 import logging
